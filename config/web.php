@@ -2,13 +2,12 @@
 
 $params = require __DIR__ . '/params.php';
 
-$db = [];
-$dbProd = require dirname(__FILE__) . '/db.php';
+$db = require dirname(__FILE__) . '/db.php';
 $dbLocal = dirname(__FILE__) . '/db-local.php';
 
 if (is_readable($dbLocal)) {
     $db = array_merge(
-        $dbProd,
+        $db,
         require $dbLocal,
     );
 }
