@@ -38,7 +38,7 @@ services:
       - MYSQL_USER=${MARIADB_USER}
       - MYSQL_PASSWORD=${MARIADB_PASSWORD}
     ports:
-      - "3306:3306"
+      - "3385:3306"
     volumes:
       - "./.docker/mysql/data/db/mysql:/var/lib/mysql"
       - "./.docker/mysql/conf.d/my.conf:/etc/mysql/conf.d/my.cnf"

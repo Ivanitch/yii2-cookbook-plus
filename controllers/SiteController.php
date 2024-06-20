@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use Yii;
+use yii\db\ActiveQuery;
+use yii\db\Query;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -61,7 +63,37 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $query = new Query();
+
+        // SELECT * FROM `user`
+        $data = $query->from('country c')->all();
+
+
+        dump($data);
+
+
+        die;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //return $this->render('index');
     }
 
     /**

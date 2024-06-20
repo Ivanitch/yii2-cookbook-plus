@@ -71,4 +71,12 @@ if (YII_ENV_DEV) {
     ];
 }
 
+// Container
+use app\cart\storage\SessionStorage;
+
+Yii::$container->setSingleton('app\cart\ShoppingCart');
+Yii::$container->set('app\cart\storage\StorageInterface', function() {
+    return new SessionStorage(Yii::$app->session, 'primary-cart');
+});
+
 return $config;
