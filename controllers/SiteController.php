@@ -66,34 +66,16 @@ class SiteController extends Controller
         $query = new Query();
 
         // SELECT * FROM `user`
-        $data = $query->from('country c')->all();
+        //$data = $query->from('country c')->all();
 
 
-        dump($data);
+        //dump($data);
 
 
-        die;
+        //die;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //return $this->render('index');
+        return $this->render('index');
     }
 
     /**

@@ -1,7 +1,17 @@
 <?php
 
 $params = require __DIR__ . '/params.php';
-$db = require __DIR__ . '/db.php';
+
+$db = [];
+$dbProd = require dirname(__FILE__) . '/db.php';
+$dbLocal = dirname(__FILE__) . '/db-local.php';
+
+if (is_readable($dbLocal)) {
+    $db = array_merge(
+        $dbProd,
+        require $dbLocal,
+    );
+}
 
 $config = [
     'id' => 'basic',
@@ -42,14 +52,13 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
@@ -73,6 +82,7 @@ if (YII_ENV_DEV) {
 
 // Container
 use app\cart\storage\SessionStorage;
+use yii\helpers\ArrayHelper;
 
 Yii::$container->setSingleton('app\cart\ShoppingCart');
 Yii::$container->set('app\cart\storage\StorageInterface', function() {

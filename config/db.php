@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=yii2-cookbook_mysql;dbname=world',
+    'dsn' => 'mysql:host=yii2-cookbook_mysql;dbname=yii2-cookbook',
     'username' => 'root',
     'password' => 'root',
     'charset' => 'utf8mb4',
